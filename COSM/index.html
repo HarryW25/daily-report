@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report Download</title>
+</head>
+<body>
+    <h1>Your Company Name</h1>
+    <label for="teamMember">Your Name:</label>
+    <select id="teamMember">
+        <option value="">Select a member</option>
+        <option value="Atit">Atit B.</option>
+        <option value="Smit">Smit S.</option>
+        <option value="Ziyad">Ziyad R.</option>
+        <option value="Sajal">Sajal A.</option>
+    </select>
+    <button id="downloadBtn">Download File</button>
+
+    <script>
+        document.getElementById('downloadBtn').onclick = function() {
+            const memberName = document.getElementById('teamMember').value;
+            if (!memberName) {
+                alert('Please select your name.');
+                return;
+            }
+
+            const today = new Date();
+            const dateString = today.toISOString().split('T')[0]; // format: YYYY-MM-DD
+            const fileName = `${memberName}_Billing_Activity_${dateString}.xlsx`;
+            const link = document.createElement('a');
+            link.href = 'daily_report.xlsx'; // Path to your .xlsx file
+            link.download = fileName; // Use the generated file name
+            link.click();
+        };
+    </script>
+</body>
+</html>
