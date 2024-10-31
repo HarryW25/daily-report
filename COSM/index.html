@@ -29,7 +29,7 @@
             const dateString = today.toISOString().split('T')[0]; // format: YYYY-MM-DD
             const fileName = `${memberName}_Billing_Activity_${dateString}.xlsx`;
             const link = document.createElement('a');
-            link.href = 'https://github.com/HarryW25/daily-report/raw/refs/heads/main/COSM/daily%20report.xlsx'; // Path to your .xlsx file
+            link.href = 'https://raw.githubusercontent.com/HarryW25/daily-report/raw/refs/heads/main/COSM/daily%20report.xlsx'; // Path to your .xlsx file
             link.download = fileName; // Use the generated file name
             link.click();
         };
